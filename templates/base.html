@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://unpkg.com/htmx.org@1.9.6"
+        integrity="sha384-FhXw7b6AlE/jyjlZH5iHa/tTe9EpJ1Y55RjcgPbjeWMskSxZt1v9qkxLJWNJaGni"
+        crossorigin="anonymous"></script>
+    <!-- Live reload for dev mode  -->
+    <script type="text/javascript" src="https://livejs.com/live.js"></script>
+    <link rel="stylesheet" href="/assets/dist/tailwind.css" />
+
+    <title>Stepan Naumov's website</title>
+
+    <style>
+        canvas {
+            outline: none;
+        }
+    </style>
+
+    {% block head %}{% endblock %}
+</head>
+
+<body>
+    <div class="container mx-auto flex justify-center items-center h-screen">
+        <canvas id="wasm_container" width="500" height="500" tabindex="-1"></canvas>
+
+        <script type="module">
+            //# sourceURL=wasm_animation.js
+            import init, { wasm_start } from '/assets/wasm/wasm_animation.js';
+            init().then(() => {
+                wasm_start();
+            });
+        </script>
+    </div>
+
+</body>
+
+</html>
