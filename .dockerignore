@@ -1,0 +1,6 @@
+/target
+.shuttle-storage
+Secrets*.toml
+node_modules
+assets/dist
+assets/wasm
